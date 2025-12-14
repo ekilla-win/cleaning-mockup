@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SparkleClean Pro Services</title>
+    <meta name="description" content="Get in touch with SparkleClean Pro Services. Contact information, business hours, and easy online inquiry form for all your cleaning needs.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-navy: #1e3a8a;
+            --secondary-green: #10b981;
+            --accent-orange: #f59e0b;
+            --neutral-gray: #6b7280;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary-navy), var(--secondary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .mockup-banner {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+        
+        .dark .mockup-banner {
+            background: linear-gradient(90deg, #92400e, #78350f);
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
+        }
+        
+        .dark .contact-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(30, 58, 138, 0.05) 100%);
+        }
+        
+        .business-hours {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+        }
+        
+        .dark .business-hours {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Mockup Banner -->
+    <div class="mockup-banner text-white text-center py-2 text-sm font-semibold fixed top-0 left-0 right-0 z-50">
+        THIS IS A MOCKUP MADE BY ETHAN, ALL INFORMATION IS FAKE
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-md shadow-lg fixed top-10 left-0 right-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="resources/logo.png" alt="SparkleClean Pro" class="h-10 w-10 mr-3">
+                    <span class="font-display text-xl font-bold text-gray-900 dark:text-white">SparkleClean Pro</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home</a>
+                    <a href="services.html" class="text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Services</a>
+                    <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                        <span id="darkModeIcon" class="text-lg">🌙</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuToggle" class="p-2 text-gray-700 dark:text-gray-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">Home</a>
+                <a href="services.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">Services</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h1 class="font-display text-5xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text">Get In Touch</span>
+                </h1>
+                <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Ready to experience the SparkleClean difference? Contact us today for a free quote or to schedule your cleaning service.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Cards -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Phone -->
+                <div class="contact-card card-hover rounded-xl p-6 text-center fade-in">
+                    <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">📞</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-2">Phone</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">Call us anytime</p>
+                    <p class="font-semibold text-emerald-600 dark:text-emerald-400">(555) 123-CLEAN</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Mon-Fri: 8AM-6PM</p>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card card-hover rounded-xl p-6 text-center fade-in">
+                    <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">✉️</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-2">Email</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">Send us a message</p>
+                    <p class="font-semibold text-emerald-600 dark:text-emerald-400">info@sparklecleanpro.com</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">We respond within 24 hours</p>
+                </div>
+
+                <!-- Address -->
+                <div class="contact-card card-hover rounded-xl p-6 text-center fade-in">
+                    <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">📍</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-2">Visit Us</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">Our office location</p>
+                    <p class="font-semibold text-emerald-600 dark:text-emerald-400">123 Clean Street</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Spotless City, SC 12345</p>
+                </div>
+
+                <!-- Emergency -->
+                <div class="contact-card card-hover rounded-xl p-6 text-center fade-in">
+                    <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">🚨</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-2">Emergency</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">Urgent cleaning needs</p>
+                    <p class="font-semibold text-emerald-600 dark:text-emerald-400">(555) 123-HELP</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">24/7 emergency service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form and Business Hours -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                        Send Us a Message
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">
+                        Fill out the form below and we'll get back to you within 24 hours with a customized quote for your cleaning needs.
+                    </p>
+
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                                    Full Name *
+                                </label>
+                                <input type="text" id="name" name="name" required 
+                                       class="form-input w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                                    Email Address *
+                                </label>
+                                <input type="email" id="email" name="email" required 
+                                       class="form-input w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                                    Phone Number *
+                                </label>
+                                <input type="tel" id="phone" name="phone" required 
+                                       class="form-input w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                                    Service Type *
+                                </label>
+                                <select id="service" name="service" required 
+                                        class="form-input w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                    <option value="">Select a service</option>
+                                    <option value="basic">Basic Cleaning</option>
+                                    <option value="deep">Deep Cleaning</option>
+                                    <option value="movein">Move-in/out Cleaning</option>
+                                    <option value="commercial">Commercial Cleaning</option>
+                                    <option value="post-construction">Post-Construction Cleaning</option>
+                                    <option value="green">Green Cleaning</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="propertySize" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                                Property Size
+                            </label>
+                            <select id="propertySize" name="propertySize" 
+                                    class="form-input w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                <option value="">Select property size</option>
+                                <option value="studio">Studio Apartment</option>
+                                <option value="1br">1 Bedroom</option>
+                                <option value="2br">2 Bedrooms</option>
+                                <option value="3br">3+ Bedrooms</option>
+                                <option value="office">Small Office</option>
+                                <option value="commercial">Commercial Space</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="preferredContact" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                                Preferred Contact Method
+                            </label>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="preferredContact" value="phone" class="mr-2 text-emerald-600 focus:ring-emerald-500">
+                                    <span class="text-gray-700 dark:text-gray-300">Phone</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="preferredContact" value="email" class="mr-2 text-emerald-600 focus:ring-emerald-500">
+                                    <span class="text-gray-700 dark:text-gray-300">Email</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="preferredContact" value="text" class="mr-2 text-emerald-600 focus:ring-emerald-500">
+                                    <span class="text-gray-700 dark:text-gray-300">Text</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                                Message *
+                            </label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      placeholder="Tell us about your cleaning needs, preferred schedule, or any special requirements..."
+                                      class="form-input w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none"></textarea>
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="mr-3 text-emerald-600 focus:ring-emerald-500">
+                            <label for="newsletter" class="text-sm text-gray-700 dark:text-gray-300">
+                                Subscribe to our newsletter for cleaning tips and special offers
+                            </label>
+                        </div>
+
+                        <button type="submit" 
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Business Hours and Additional Info -->
+                <div class="fade-in">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                        Business Hours
+                    </h2>
+
+                    <!-- Business Hours Card -->
+                    <div class="business-hours rounded-xl p-6 mb-8">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-gray-900 dark:text-white">Monday - Friday</span>
+                                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-gray-900 dark:text-white">Saturday</span>
+                                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">9:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-gray-900 dark:text-white">Sunday</span>
+                                <span class="text-red-600 dark:text-red-400 font-semibold">Closed</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/30 rounded-lg">
+                            <p class="text-sm text-emerald-700 dark:text-emerald-300">
+                                <strong>Note:</strong> Emergency cleaning services available 24/7. Call our emergency line for urgent needs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Service Areas -->
+                    <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg mb-8">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                            Service Areas
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4 text-gray-600 dark:text-gray-400">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Downtown</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Financial District</li>
+                                    <li>• Historic Quarter</li>
+                                    <li>• Arts District</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Suburbs</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Westside</li>
+                                    <li>• East District</li>
+                                    <li>• North Heights</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">
+                            Don't see your area? Contact us - we're constantly expanding our service coverage!
+                        </p>
+                    </div>
+
+                    <!-- Emergency Services -->
+                    <div class="bg-red-50 dark:bg-red-900/30 rounded-xl p-6 border border-red-200 dark:border-red-700">
+                        <h3 class="font-display text-2xl font-bold text-red-700 dark:text-red-400 mb-4">
+                            24/7 Emergency Services
+                        </h3>
+                        <p class="text-red-600 dark:text-red-300 mb-4">
+                            Need immediate cleaning assistance? Our emergency team is available around the clock for urgent situations.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-2xl">🚨</span>
+                            <div>
+                                <p class="font-semibold text-red-700 dark:text-red-400">Emergency Hotline</p>
+                                <p class="text-red-600 dark:text-red-300 font-bold">(555) 123-HELP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Quick answers to common questions about our services and processes.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            How quickly can you schedule a cleaning?
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            We can typically schedule basic cleaning services within 24-48 hours. For deep cleaning or commercial services, we recommend booking 3-5 days in advance. Emergency services are available 24/7.
+                        </p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            Do you bring your own cleaning supplies?
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Yes! We bring all necessary cleaning supplies and equipment. We use professional-grade, eco-friendly products that are safe for your family, pets, and the environment.
+                        </p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            Are your cleaners insured and background checked?
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Absolutely. All our cleaning professionals are thoroughly background checked, fully insured, and bonded for your peace of mind. We also provide ongoing training to ensure the highest quality service.
+                        </p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            What is your cancellation policy?
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            We require 24 hours notice for cancellations or rescheduling. This helps us maintain our schedule and serve all our customers effectively. Emergency cancellations are handled on a case-by-case basis.
+                        </p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3">
+                            Do you offer a satisfaction guarantee?
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Yes! We stand behind our work with a 100% satisfaction guarantee. If you're not completely satisfied with any aspect of our service, we'll come back and make it right at no additional cost.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-emerald-600 to-emerald-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+                    Ready to Get Started?
+                </h2>
+                <p class="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
+                    Don't wait to experience the difference professional cleaning can make. Contact us today and let's discuss your needs.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="tel:555-123-5326" class="bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-lg">
+                        Call Now
+                    </a>
+                    <button onclick="document.getElementById('contactForm').scrollIntoView({behavior: 'smooth'})" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-emerald-600 transition-colors">
+                        Send Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="resources/logo.png" alt="SparkleClean Pro" class="h-10 w-10 mr-3">
+                        <span class="font-display text-xl font-bold">SparkleClean Pro</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Professional cleaning services for homes and businesses. Trusted, reliable, and thorough.
+                    </p>
+                    <div class="flex space-x-4">
+                        <span class="text-2xl cursor-pointer hover:scale-110 transition-transform">📧</span>
+                        <span class="text-2xl cursor-pointer hover:scale-110 transition-transform">📱</span>
+                        <span class="text-2xl cursor-pointer hover:scale-110 transition-transform">🌐</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-display text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Basic Cleaning</a></li>
+                        <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Deep Cleaning</a></li>
+                        <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Commercial Cleaning</a></li>
+                        <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Move-in/out Cleaning</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-display text-lg font-bold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-emerald-400 transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-emerald-400 transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-display text-lg font-bold mb-4">Contact Info</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p>📍 123 Clean Street<br>Spotless City, SC 12345</p>
+                        <p>📞 (555) 123-CLEAN</p>
+                        <p>✉️ info@sparklecleanpro.com</p>
+                        <p>🕒 Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SparkleClean Pro Services. All rights reserved. | This is a mockup website created by Ethan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="fixed bottom-8 right-8 bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-30">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
